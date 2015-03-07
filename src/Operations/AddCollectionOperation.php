@@ -33,13 +33,13 @@ class AddCollectionOperation implements CollectionOperationInterface
     public static function apply(Collection $collection, array $options = [])
     {
         $times = $collection->rows();
-        $matrix = [];
+        $rows = [];
 
         for ($i = 0; $i < $times; ++$i) {
-            $matrix[] = static::generateRow($collection->row($i));
+            $rows[] = static::generateRow($collection->row($i));
         }
 
-        return new Matrix($matrix);
+        return new Matrix($rows);
     }
 
     protected static function generateRow(CollectionRowIterator $iterator)

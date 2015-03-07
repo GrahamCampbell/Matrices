@@ -32,19 +32,19 @@ class MultiplyMatrixByScalarOperation implements MatrixOperationInterface
      */
     public static function apply(Matrix $matrix, array $options = [])
     {
-        if (isset($options['scalar'])) {
-            throw new InvalidArgumentException('A scalar to multiple by is required.');
+        if (!isset($options['scalar'])) {
+            throw new InvalidArgumentException('A scalar to multiply by is required.');
         }
 
         $scalar = $options['scalar'];
         $times = $matrix->rows();
-        $matrix = [];
+        $rows = [];
 
         for ($i = 0; $i < $times; ++$i) {
-            $matrix[] = static::generateRow($matrix->row($i), $scalar);
+            $rows[] = static::generateRow($matrix->row($i), $scalar);
         }
 
-        return new Matrix($matrix);
+        return new Matrix($rows);
     }
 
     protected static function generateRow(MatrixRowIterator $iterator, $scalar)
