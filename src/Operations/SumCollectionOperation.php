@@ -16,11 +16,11 @@ use GrahamCampbell\Matrices\Iterators\CollectionRowIterator;
 use GrahamCampbell\Matrices\Matrix;
 
 /**
- * This is the add collection operation class.
+ * This is the sum collection operation class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class AddCollectionOperation implements CollectionOperationInterface
+class SumCollectionOperation implements CollectionOperationInterface
 {
     /**
      * Apply the operation to the given matrix collection.
