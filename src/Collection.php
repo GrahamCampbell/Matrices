@@ -26,7 +26,7 @@ use IteratorAggregate;
 class Collection implements Countable, IteratorAggregate
 {
     protected $matrices;
-    protected $sameDimentions;
+    protected $sameDimensions;
 
     public function __construct(array $matrices)
     {
@@ -52,10 +52,10 @@ class Collection implements Countable, IteratorAggregate
      *
      * @return bool
      */
-    public function sameDimentions()
+    public function sameDimensions()
     {
-        if ($this->sameDimentions !== null) {
-            return $this->sameDimentions;
+        if ($this->sameDimensions !== null) {
+            return $this->sameDimensions;
         }
 
         $rows = $this->matrices[0]->rows();
@@ -63,16 +63,16 @@ class Collection implements Countable, IteratorAggregate
 
         foreach ($this->matrices as $matrix) {
             if ($matrix->rows() !== $rows || $matrix->columns() !== $columns) {
-                return $this->sameDimentions = false;
+                return $this->sameDimensions = false;
             }
         }
 
-        return $this->sameDimentions = true;
+        return $this->sameDimensions = true;
     }
 
     public function rows()
     {
-        if (!$this->sameDimentions()) {
+        if (!$this->sameDimensions()) {
             throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
         }
 
@@ -81,7 +81,7 @@ class Collection implements Countable, IteratorAggregate
 
     public function columns()
     {
-        if (!$this->sameDimentions()) {
+        if (!$this->sameDimensions()) {
             throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
         }
 
@@ -90,7 +90,7 @@ class Collection implements Countable, IteratorAggregate
 
     public function row($index)
     {
-        if (!$this->sameDimentions()) {
+        if (!$this->sameDimensions()) {
             throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
         }
 
@@ -99,7 +99,7 @@ class Collection implements Countable, IteratorAggregate
 
     public function column($index)
     {
-        if (!$this->sameDimentions()) {
+        if (!$this->sameDimensions()) {
             throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
         }
 
