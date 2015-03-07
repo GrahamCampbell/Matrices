@@ -24,8 +24,9 @@ interface CollectionOperationInterface
      * Apply the operation to the given matrix collection.
      *
      * @param \GrahamCampbell\Matrices\Collection $collection
+     * @param array                               $options
      *
-     * @return \GrahamCampbell\Matrices\Matrix
+     * @return mixed
      */
-    public static function apply(Collection $collection);
+    public static function apply(Collection $collection, array $options = []);
 }

@@ -24,8 +24,9 @@ interface MatrixOperationInterface
      * Apply the operation to the given matrix.
      *
      * @param \GrahamCampbell\Matrices\Matrix $matrix
+     * @param array                           $options
      *
-     * @return \GrahamCampbell\Matrices\Matrix
+     * @return mixed
      */
-    public static function apply(Matrix $matrices);
+    public static function apply(Matrix $matrices, array $options = []);
 }

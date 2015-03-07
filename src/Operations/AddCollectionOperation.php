@@ -26,10 +26,11 @@ class AddCollectionOperation implements CollectionOperationInterface
      * Apply the operation to the given matrix collection.
      *
      * @param \GrahamCampbell\Matrices\Collection $collection
+     * @param array                               $options
      *
      * @return \GrahamCampbell\Matrices\Matrix
      */
-    public static function apply(Collection $collection)
+    public static function apply(Collection $collection, array $options = [])
     {
         $times = $collection->rows();
         $matrix = [];
