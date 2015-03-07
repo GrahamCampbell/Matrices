@@ -28,7 +28,6 @@ abstract class AbstractCollectionIterator extends AbstractIterator
             $current[] = $iterator->current();
         }
 
-
         return $current;
     }
 
