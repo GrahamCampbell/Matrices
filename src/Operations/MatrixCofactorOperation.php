@@ -30,18 +30,11 @@ class MatrixCofactorOperation implements MatrixOperationInterface
      */
     public static function apply(Matrix $matrix, array $options = [])
     {
-        $sign = true;
         $elements = [];
 
         foreach ($matrix as $row => $iterator) {
             foreach ($iterator as $column => $element) {
-                if ($sign) {
-                    $elements[$row][$column] = $element;
-                    $sign = false;
-                } else {
-                    $elements[$row][$column] = - $element;
-                    $sign = true;
-                }
+                $elements[$row][$column] = $element * pow(-1, $row + $column);
             }
         }
 
