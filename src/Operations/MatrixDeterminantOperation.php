@@ -45,19 +45,22 @@ class MatrixDeterminantOperation implements MatrixOperationInterface
     protected static function detLarge(Matrix $matrix)
     {
         $det = 0;
-        $sign = true;
 
-        foreach ($matrix->row(0) as $index => $element) {
-            $minor = MatrixMinorOperation::apply($matrix, ['row' => 0, 'column' => $index]);
-            if ($sign) {
-                $det += $element * $minor;
-                $sign = false;
-            } else {
-                $det -= $element * $minor;
-                $sign = true;
-            }
+        foreach (static::getIntermediateMatrix($matrix)->row(0) as $element) {
+            $det += $element;
         }
 
         return $det;
+    }
+
+    protected static function getIntermediateMatrix(Matrix $matrix)
+    {
+        $row = [];
+
+        foreach ($matrix->row(0) as $index => $element) {
+            $row[$index] = $element * MatrixMinorOperation::apply($matrix, ['row' => 0, 'column' => $index]);
+        }
+
+        return MatrixCofactorOperation::apply(new Matrix([$row]));
     }
 }
