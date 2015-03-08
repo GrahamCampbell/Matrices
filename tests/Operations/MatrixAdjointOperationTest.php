@@ -20,7 +20,7 @@ use PHPUnit_Framework_TestCase as TestCase;
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class MatrixAjointOperationTest extends TestCase
+class MatrixAdjointOperationTest extends TestCase
 {
     public function dataProvider()
     {

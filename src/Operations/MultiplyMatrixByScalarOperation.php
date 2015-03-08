@@ -11,7 +11,6 @@
 
 namespace GrahamCampbell\Matrices\Operations;
 
-use GrahamCampbell\Matrices\Iterators\MatrixRowIterator;
 use GrahamCampbell\Matrices\Matrix;
 use InvalidArgumentException;
 

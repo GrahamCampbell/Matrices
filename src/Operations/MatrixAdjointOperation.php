@@ -35,7 +35,7 @@ class MatrixAdjointOperation implements MatrixOperationInterface
             throw new InvalidMatrixException('Only square matrices have an adjoint.');
         }
 
-        switch($matrix->rows()) {
+        switch ($matrix->rows()) {
             case 1:
                 return $matrix;
             case 2:
