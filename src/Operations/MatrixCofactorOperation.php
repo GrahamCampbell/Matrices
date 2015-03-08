@@ -34,7 +34,6 @@ class MatrixCofactorOperation implements MatrixOperationInterface
         $elements = [];
 
         foreach ($matrix as $row => $iterator) {
-            $elements[$row] = [];
             foreach ($iterator as $column => $element) {
                 if ($sign) {
                     $elements[$row][$column] = $element;
