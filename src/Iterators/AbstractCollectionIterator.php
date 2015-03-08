@@ -51,6 +51,9 @@ abstract class AbstractCollectionIterator extends AbstractIterator
 
     public function valid()
     {
+        // we're not spinning through all the iterators here to save cpu time
+        // all iterators are assumed to have the same length
+        // i.e. all matrices in the collection have the same dimensions
         return $this->iterators[0]->valid();
     }
 }
