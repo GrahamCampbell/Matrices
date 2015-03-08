@@ -32,11 +32,10 @@ class SumCollectionOperation implements CollectionOperationInterface
      */
     public static function apply(Collection $collection, array $options = [])
     {
-        $times = $collection->rows();
         $rows = [];
 
-        for ($i = 0; $i < $times; ++$i) {
-            $rows[] = static::generateRow($collection->row($i));
+        foreach ($collection as $iterator) {
+            $rows[] = static::generateRow($iterator);
         }
 
         return new Matrix($rows);

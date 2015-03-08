@@ -11,10 +11,10 @@
 
 namespace GrahamCampbell\Matrices;
 
-use ArrayIterator;
 use Countable;
 use GrahamCampbell\Matrices\Exceptions\InvalidCollectionException;
 use GrahamCampbell\Matrices\Iterators\CollectionColumnIterator;
+use GrahamCampbell\Matrices\Iterators\CollectionIterator;
 use GrahamCampbell\Matrices\Iterators\CollectionRowIterator;
 use IteratorAggregate;
 
@@ -108,6 +108,10 @@ class Collection implements Countable, IteratorAggregate
 
     public function getIterator()
     {
-        return new ArrayIterator($this->matrices);
+        if (!$this->sameDimensions()) {
+            throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
+        }
+
+        return new CollectionIterator($this->matrices);
     }
 }

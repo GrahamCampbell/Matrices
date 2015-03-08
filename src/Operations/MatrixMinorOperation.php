@@ -47,19 +47,19 @@ class MatrixMinorOperation implements MatrixOperationInterface
             throw new InvalidArgumentException('The position of the element in the matrix must exist in the matrix.');
         }
 
-        return MatrixDeterminantOperation::apply(static::generateMatrix($matrix, $size, $options['row'], $options['column']));
+        return MatrixDeterminantOperation::apply(static::generateMatrix($matrix, $options['row'], $options['column']));
     }
 
-    protected static function generateMatrix(Matrix $matrix, $size, $row, $column)
+    protected static function generateMatrix(Matrix $matrix, $row, $column)
     {
         $rows = [];
 
-        for ($i = 0; $i < $size; ++$i) {
-            if ($i === $row) {
+        foreach ($matrix as $index => $iterator) {
+            if ($index === $row) {
                 continue;
             }
 
-            $rows[] = static::generateRow($matrix->row($i), $column);
+            $rows[] = static::generateRow($iterator, $column);
         }
 
         return new Matrix($rows);

@@ -14,14 +14,16 @@ namespace GrahamCampbell\Matrices;
 use Countable;
 use GrahamCampbell\Matrices\Exceptions\InvalidMatrixException;
 use GrahamCampbell\Matrices\Iterators\MatrixColumnIterator;
+use GrahamCampbell\Matrices\Iterators\MatrixIterator;
 use GrahamCampbell\Matrices\Iterators\MatrixRowIterator;
+use IteratorAggregate;
 
 /**
  * This is the matrix class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class Matrix implements Countable
+class Matrix implements Countable, IteratorAggregate
 {
     protected $elements;
     protected $rows;
@@ -103,5 +105,10 @@ class Matrix implements Countable
     public function column($index)
     {
         return new MatrixColumnIterator($this->elements, $index);
+    }
+
+    public function getIterator()
+    {
+        return new MatrixIterator($this->elements);
     }
 }
