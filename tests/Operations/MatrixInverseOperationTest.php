@@ -41,6 +41,15 @@ class MatrixInverseOperationTest extends TestCase
         $this->assertSame($result, $inverse->raw());
     }
 
+    public function testFindInverseOfLargeIdentity()
+    {
+        $matrix = new Matrix([[1, 0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 0, 0, 0, 1]]);
+
+        $inverse = MatrixInverseOperation::apply($matrix);
+
+        $this->assertSame($matrix->raw(), $inverse->raw());
+    }
+
     /**
      * @expectedException \GrahamCampbell\Matrices\Exceptions\InvalidMatrixException
      * @expectedExceptionMessage Only square matrices have an inverse.
