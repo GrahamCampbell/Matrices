@@ -37,23 +37,14 @@ class MultiplyMatrixByScalarOperation implements MatrixOperationInterface
         }
 
         $scalar = $options['scalar'];
-        $rows = [];
+        $elements = [];
 
-        foreach ($matrix as $iterator) {
-            $rows[] = static::generateRow($iterator, $scalar);
+        foreach ($matrix as $row => $iterator) {
+            foreach ($iterator as $column => $element) {
+                $elements[$row][$column] = $element * $scalar;
+            }
         }
 
-        return new Matrix($rows);
-    }
-
-    protected static function generateRow(MatrixRowIterator $iterator, $scalar)
-    {
-        $row = [];
-
-        foreach ($iterator as $element) {
-            $row[] = $element * $scalar;
-        }
-
-        return $row;
+        return new Matrix($elements);
     }
 }

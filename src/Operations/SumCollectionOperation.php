@@ -12,7 +12,6 @@
 namespace GrahamCampbell\Matrices\Operations;
 
 use GrahamCampbell\Matrices\Collection;
-use GrahamCampbell\Matrices\Iterators\CollectionRowIterator;
 use GrahamCampbell\Matrices\Matrix;
 
 /**
@@ -32,23 +31,14 @@ class SumCollectionOperation implements CollectionOperationInterface
      */
     public static function apply(Collection $collection, array $options = [])
     {
-        $rows = [];
+        $elements = [];
 
-        foreach ($collection as $iterator) {
-            $rows[] = static::generateRow($iterator);
+        foreach ($collection as $row => $iterator) {
+            foreach ($iterator as $column => $values) {
+                $elements[$row][$column] = array_sum($values);
+            }
         }
 
-        return new Matrix($rows);
-    }
-
-    protected static function generateRow(CollectionRowIterator $iterator)
-    {
-        $row = [];
-
-        foreach ($iterator as $elements) {
-            $row[] = array_sum($elements);
-        }
-
-        return $row;
+        return new Matrix($elements);
     }
 }
