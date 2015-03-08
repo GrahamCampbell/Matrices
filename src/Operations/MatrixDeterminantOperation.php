@@ -21,6 +21,8 @@ use GrahamCampbell\Matrices\Matrix;
  */
 class MatrixDeterminantOperation implements MatrixOperationInterface
 {
+    use IntermediateMatrixTrait;
+
     /**
      * Apply the operation to the given matrix.
      *
@@ -51,16 +53,5 @@ class MatrixDeterminantOperation implements MatrixOperationInterface
         }
 
         return $det;
-    }
-
-    protected static function getIntermediateMatrix(Matrix $matrix)
-    {
-        $row = [];
-
-        foreach ($matrix->row(0) as $index => $element) {
-            $row[$index] = $element * MatrixMinorOperation::apply($matrix, ['row' => 0, 'column' => $index]);
-        }
-
-        return MatrixCofactorOperation::apply(new Matrix([$row]));
     }
 }
