@@ -35,21 +35,11 @@ class MatrixAdjointOperation implements MatrixOperationInterface
             throw new InvalidMatrixException('Only square matrices have an adjoint.');
         }
 
-        switch ($matrix->rows()) {
-            case 1:
-                return $matrix;
-            case 2:
-                return static::adjointTwoByTwo($matrix);
-            default:
-                return static::adjointLarge($matrix);
+        if ($matrix->rows() === 1) {
+            return $matrix;
         }
-    }
 
-    protected static function adjointTwoByTwo(Matrix $matrix)
-    {
-        $raw = $matrix->raw();
-
-        return new Matrix([[$raw[1][1], - $raw[1][0]], [- $raw[0][1], $raw[0][0]]]);
+        return static::adjointLarge($matrix);
     }
 
     protected static function adjointLarge(Matrix $matrix)
