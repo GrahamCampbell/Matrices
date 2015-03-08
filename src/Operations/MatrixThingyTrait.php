@@ -14,7 +14,7 @@ namespace GrahamCampbell\Matrices\Operations;
 use GrahamCampbell\Matrices\Matrix;
 
 /**
- * This is the intermediate matrix trait class.
+ * This is the matrix thingy trait class.
  *
  * This trait is designed for internal use only.
  *
