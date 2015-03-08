@@ -70,47 +70,44 @@ class Collection implements Countable, IteratorAggregate
         return $this->sameDimensions = true;
     }
 
-    public function rows()
+    protected function guardDimensions()
     {
         if (!$this->sameDimensions()) {
             throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
         }
+    }
+
+    public function rows()
+    {
+        $this->guardDimensions();
 
         return $this->matrices[0]->rows();
     }
 
     public function columns()
     {
-        if (!$this->sameDimensions()) {
-            throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
-        }
+        $this->guardDimensions();
 
         return $this->matrices[0]->columns();
     }
 
     public function row($index)
     {
-        if (!$this->sameDimensions()) {
-            throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
-        }
+        $this->guardDimensions();
 
         return new CollectionRowIterator($this->matrices, $index);
     }
 
     public function column($index)
     {
-        if (!$this->sameDimensions()) {
-            throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
-        }
+        $this->guardDimensions();
 
         return new CollectionColumnIterator($this->matrices, $index);
     }
 
     public function getIterator()
     {
-        if (!$this->sameDimensions()) {
-            throw new InvalidCollectionException('All matrices in the collection must have the same dimensions.');
-        }
+        $this->guardDimensions();
 
         return new CollectionIterator($this->matrices);
     }
