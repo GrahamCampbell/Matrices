@@ -20,16 +20,16 @@ use GrahamCampbell\Matrices\Matrix;
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-trait IntermediateMatrixTrait
+trait MatrixThingyTrait
 {
-    protected static function getIntermediateMatrix(Matrix $matrix)
+    protected static function getMatrixThingy(Matrix $matrix)
     {
-        $row = [];
+        $elements = [];
 
         foreach ($matrix->row(0) as $index => $element) {
-            $row[$index] = $element * MatrixMinorOperation::apply($matrix, ['row' => 0, 'column' => $index]);
+            $elements[$index][] = $element * MatrixMinorOperation::apply($matrix, ['row' => 0, 'column' => $index]);
         }
 
-        return MatrixCofactorOperation::apply(new Matrix([$row]));
+        return MatrixCofactorOperation::apply(new Matrix($elements));
     }
 }

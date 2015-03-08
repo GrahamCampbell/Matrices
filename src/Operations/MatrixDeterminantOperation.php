@@ -21,7 +21,7 @@ use GrahamCampbell\Matrices\Matrix;
  */
 class MatrixDeterminantOperation implements MatrixOperationInterface
 {
-    use IntermediateMatrixTrait;
+    use MatrixThingyTrait;
 
     /**
      * Apply the operation to the given matrix.
@@ -48,7 +48,7 @@ class MatrixDeterminantOperation implements MatrixOperationInterface
     {
         $det = 0;
 
-        foreach (static::getIntermediateMatrix($matrix)->row(0) as $element) {
+        foreach (static::getMatrixThingy($matrix)->column(0) as $element) {
             $det += $element;
         }
 
