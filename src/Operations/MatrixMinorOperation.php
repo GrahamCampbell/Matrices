@@ -29,7 +29,7 @@ class MatrixMinorOperation implements MatrixOperationInterface
      * @param \GrahamCampbell\Matrices\Matrix $matrix
      * @param array                           $options
      *
-     * @return \GrahamCampbell\Matrices\Matrix
+     * @return int|float
      */
     public static function apply(Matrix $matrix, array $options = [])
     {
