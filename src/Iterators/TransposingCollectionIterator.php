@@ -21,8 +21,13 @@ class TransposingCollectionIterator extends AbstractCollectionIterator
     public function __construct(array $matrices)
     {
         $this->iterators = [
-            new MatrixRowsIterator($this->matrices[0]),
-            new MatrixColumnsIterator($this->matrices[1]),
+            new MatrixRowsIterator($matrices[0]->raw()),
+            new MatrixColumnsIterator($matrices[1]->raw()),
         ];
+    }
+
+    public function current()
+    {
+        return new TransposingElementsIterator($this->iterators[0]->current(), $this->iterators[1]->current());
     }
 }
