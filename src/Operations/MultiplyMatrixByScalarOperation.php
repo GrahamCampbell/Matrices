@@ -38,7 +38,7 @@ class MultiplyMatrixByScalarOperation implements MatrixOperationInterface
         $scalar = $options['scalar'];
         $elements = [];
 
-        foreach ($matrix as $row => $iterator) {
+        foreach ($matrix->eachRow() as $row => $iterator) {
             foreach ($iterator as $column => $element) {
                 $elements[$row][$column] = $element * $scalar;
             }

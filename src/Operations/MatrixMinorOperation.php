@@ -54,7 +54,7 @@ class MatrixMinorOperation implements MatrixOperationInterface
     {
         $rows = [];
 
-        foreach ($matrix as $index => $iterator) {
+        foreach ($matrix->eachRow() as $index => $iterator) {
             if ($index === $row) {
                 continue;
             }

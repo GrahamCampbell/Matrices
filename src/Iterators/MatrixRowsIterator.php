@@ -12,11 +12,11 @@
 namespace GrahamCampbell\Matrices\Iterators;
 
 /**
- * This is the matrix iterator class.
+ * This is the matrix rows iterator class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class MatrixIterator extends AbstractIterator
+class MatrixRowsIterator extends AbstractIterator
 {
     protected $elements;
 

@@ -32,7 +32,7 @@ class MatrixCofactorOperation implements MatrixOperationInterface
     {
         $elements = [];
 
-        foreach ($matrix as $row => $iterator) {
+        foreach ($matrix->eachRow() as $row => $iterator) {
             foreach ($iterator as $column => $element) {
                 $elements[$row][$column] = $element * pow(-1, $row + $column);
             }

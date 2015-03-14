@@ -33,7 +33,7 @@ class SumCollectionOperation implements CollectionOperationInterface
     {
         $elements = [];
 
-        foreach ($collection as $row => $iterator) {
+        foreach ($collection->eachRow() as $row => $iterator) {
             foreach ($iterator as $column => $values) {
                 $elements[$row][$column] = array_sum($values);
             }

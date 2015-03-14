@@ -32,7 +32,7 @@ class MatrixTransposeOperation implements MatrixOperationInterface
     {
         $elements = [];
 
-        foreach ($matrix as $row => $iterator) {
+        foreach ($matrix->eachRow() as $row => $iterator) {
             foreach ($iterator as $column => $element) {
                 $elements[$column][$row] = $element;
             }

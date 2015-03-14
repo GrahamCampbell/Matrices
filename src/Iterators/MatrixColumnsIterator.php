@@ -12,28 +12,26 @@
 namespace GrahamCampbell\Matrices\Iterators;
 
 /**
- * This is the collection iterator class.
+ * This is the matrix columns iterator class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class CollectionIterator extends AbstractIterator
+class MatrixColumnsIterator extends AbstractIterator
 {
-    protected $matrices;
-    protected $raw;
+    protected $elements;
 
-    public function __construct(array $matrices)
+    public function __construct(array $elements)
     {
-        $this->matrices = $matrices;
-        $this->raw = $matrices[0]->raw();
+        $this->elements = $elements;
     }
 
     public function current()
     {
-        return new CollectionRowIterator($this->matrices, $this->pos);
+        return new MatrixColumnIterator($this->elements, $this->pos);
     }
 
     public function valid()
     {
-        return isset($this->raw[$this->pos]);
+        return isset($this->elements[0][$this->pos]);
     }
 }

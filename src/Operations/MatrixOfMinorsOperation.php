@@ -32,7 +32,7 @@ class MatrixOfMinorsOperation implements MatrixOperationInterface
     {
         $elements = [];
 
-        foreach ($matrix as $row => $iterator) {
+        foreach ($matrix->eachRow() as $row => $iterator) {
             foreach ($iterator as $column => $element) {
                 $elements[$row][$column] = MatrixMinorOperation::apply($matrix, ['row' => $row, 'column' => $column]);
             }

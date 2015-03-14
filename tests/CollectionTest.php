@@ -63,7 +63,7 @@ class CollectionTest extends TestCase
         $this->assertFalse($collection->sameDimensions());
     }
 
-    public function testIterator()
+    public function testRowsIterator()
     {
         $collection = new Collection([new Matrix([[1, 2], [3, 4]]), new Matrix([[5, 6], [7, 8]])]);
 
@@ -71,7 +71,7 @@ class CollectionTest extends TestCase
 
         $result = [];
 
-        foreach ($collection as $row => $iterator) {
+        foreach ($collection->eachRow() as $row => $iterator) {
             foreach ($iterator as $column => $values) {
                 $result[$row][$column] = $values;
             }
@@ -80,17 +80,49 @@ class CollectionTest extends TestCase
         $this->assertSame([[[1, 5], [2, 6]], [[3, 7], [4, 8]]], $result);
     }
 
+    public function testColumnsIterator()
+    {
+        $collection = new Collection([new Matrix([[1, 2], [3, 4]]), new Matrix([[5, 6], [7, 8]])]);
+
+        $this->assertTrue($collection->sameDimensions());
+
+        $result = [];
+
+        foreach ($collection->eachColumn() as $row => $iterator) {
+            foreach ($iterator as $column => $values) {
+                $result[$row][$column] = $values;
+            }
+        }
+
+        $this->assertSame([[[1, 5], [3, 7]], [[2, 6], [4, 8]]], $result);
+    }
+
     /**
      * @expectedException \GrahamCampbell\Matrices\Exceptions\InvalidCollectionException
      * @expectedExceptionMessage All matrices in the collection must have the same dimensions.
      */
-    public function testIteratorFail()
+    public function testRowsIteratorFail()
     {
         $collection = new Collection([new Matrix([[1], [2]]), new Matrix([[3, 4]])]);
 
         $this->assertFalse($collection->sameDimensions());
 
-        foreach ($collection as $iterator) {
+        foreach ($collection->eachRow() as $iterator) {
+            // we shouldn't get here
+        }
+    }
+
+    /**
+     * @expectedException \GrahamCampbell\Matrices\Exceptions\InvalidCollectionException
+     * @expectedExceptionMessage All matrices in the collection must have the same dimensions.
+     */
+    public function testColumnsIteratorFail()
+    {
+        $collection = new Collection([new Matrix([[1], [2]]), new Matrix([[3, 4]])]);
+
+        $this->assertFalse($collection->sameDimensions());
+
+        foreach ($collection->eachColumn() as $iterator) {
             // we shouldn't get here
         }
     }

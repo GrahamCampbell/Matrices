@@ -14,16 +14,17 @@ namespace GrahamCampbell\Matrices;
 use Countable;
 use GrahamCampbell\Matrices\Exceptions\InvalidCollectionException;
 use GrahamCampbell\Matrices\Iterators\CollectionColumnIterator;
-use GrahamCampbell\Matrices\Iterators\CollectionIterator;
+use GrahamCampbell\Matrices\Iterators\CollectionColumnsIterator;
 use GrahamCampbell\Matrices\Iterators\CollectionRowIterator;
-use IteratorAggregate;
+use GrahamCampbell\Matrices\Iterators\CollectionRowsIterator;
+use GrahamCampbell\Matrices\Iterators\TransposingCollectionIterator;
 
 /**
  * This is the matrix collection class.
  *
  * @author Graham Campbell <graham@mineuk.com>
  */
-class Collection implements Countable, IteratorAggregate
+class Collection implements Countable
 {
     protected $matrices;
     protected $sameDimensions;
@@ -105,10 +106,30 @@ class Collection implements Countable, IteratorAggregate
         return new CollectionColumnIterator($this->matrices, $index);
     }
 
-    public function getIterator()
+    public function eachRow()
     {
         $this->guardDimensions();
 
-        return new CollectionIterator($this->matrices);
+        return new CollectionRowsIterator($this->matrices);
+    }
+
+    public function eachColumn()
+    {
+        $this->guardDimensions();
+
+        return new CollectionColumnsIterator($this->matrices);
+    }
+
+    public function transposingEach()
+    {
+        if ($this->count() !== 2) {
+            throw new InvalidCollectionException('The collection must contain exactly 2 matrices.');
+        }
+
+        if ($this->matrices[0]->columns() !== $this->matrices[1]->rows()) {
+            throw new InvalidCollectionException('The number of columns in the first matrix must match the number of rows in the second.');
+        }
+
+        return new TransposingCollectionIterator($this->matrices);
     }
 }
