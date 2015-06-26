@@ -3,7 +3,7 @@
 /*
  * This file is part of Matrices.
  *
- * (c) Graham Campbell <graham@mineuk.com>
+ * (c) Graham Campbell <graham@alt-three.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,7 +19,7 @@ use PHPUnit_Framework_TestCase as TestCase;
 /**
  * This is the scalar product operation test class.
  *
- * @author Graham Campbell <graham@mineuk.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class ScalarProductOperationTest extends TestCase
 {

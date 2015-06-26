@@ -6,11 +6,11 @@
     "authors": [
         {
             "name": "Graham Campbell",
-            "email": "graham@mineuk.com"
+            "email": "graham@alt-three.com"
         }
     ],
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.9"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.5"
@@ -24,6 +24,9 @@
         "psr-4": {
             "GrahamCampbell\\Tests\\Matrices\\": "tests/"
         }
+    },
+    "config": {
+        "preferred-install": "dist"
     },
     "extra": {
         "branch-alias": {
