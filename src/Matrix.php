@@ -36,13 +36,13 @@ class Matrix implements Countable, IteratorAggregate
         $this->rows = count($this->elements);
 
         if ($this->rows < 1) {
-            throw new InvalidMatrixException("The matrix must contain at least one row.");
+            throw new InvalidMatrixException('The matrix must contain at least one row.');
         }
 
         $this->columns = count($this->elements[0]);
 
         if ($this->columns < 1) {
-            throw new InvalidMatrixException("The matrix must contain at least one column.");
+            throw new InvalidMatrixException('The matrix must contain at least one column.');
         }
 
         foreach ($this->elements as $row) {
