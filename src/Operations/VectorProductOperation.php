@@ -28,7 +28,7 @@ final class VectorProductOperation implements CollectionOperationInterface
      * @param \GrahamCampbell\Matrices\Collection $collection
      * @param array                               $options
      *
-     * @return int|float
+     * @return \GrahamCampbell\Matrices\Matrix
      */
     public static function apply(Collection $collection, array $options = [])
     {

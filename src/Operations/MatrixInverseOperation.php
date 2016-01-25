@@ -27,7 +27,7 @@ final class MatrixInverseOperation implements MatrixOperationInterface
      * @param \GrahamCampbell\Matrices\Matrix $matrix
      * @param array                           $options
      *
-     * @return int|float
+     * @return \GrahamCampbell\Matrices\Matrix
      */
     public static function apply(Matrix $matrix, array $options = [])
     {
