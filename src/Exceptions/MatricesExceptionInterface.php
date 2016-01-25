@@ -11,8 +11,6 @@
 
 namespace GrahamCampbell\Matrices\Exceptions;
 
-use InvalidArgumentException;
-
 /**
  * This is the matrices exception interface.
  *
