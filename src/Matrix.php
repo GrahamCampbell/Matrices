@@ -12,6 +12,7 @@
 namespace GrahamCampbell\Matrices;
 
 use Countable;
+use GrahamCampbell\Matrices\Exceptions\InvalidElementException;
 use GrahamCampbell\Matrices\Exceptions\InvalidMatrixException;
 use GrahamCampbell\Matrices\Iterators\MatrixColumnIterator;
 use GrahamCampbell\Matrices\Iterators\MatrixIterator;
@@ -50,6 +51,20 @@ final class Matrix implements Countable, IteratorAggregate
                 throw new InvalidMatrixException("All rows must contain {$this->columns} columns.");
             }
         }
+    }
+
+    /**
+     * Get an individual element from the matrix.
+     *
+     * @return int|float
+     */
+    public function element($i, $j)
+    {
+        if (!isset($this->elements[$i][$j])) {
+            throw new InvalidElementException('The given element does not exist in the matrix.');
+        }
+
+        return $this->elements[$i][$j];
     }
 
     /**

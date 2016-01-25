@@ -38,6 +38,16 @@ final class Collection implements Countable, IteratorAggregate
     }
 
     /**
+     * Get an array of the matrices in the collection.
+     *
+     * @return \GrahamCampbell\Matrices\Matrix[]
+     */
+    public function matrices()
+    {
+        return $this->matrices;
+    }
+
+    /**
      * Get the total number of matrices.
      *
      * @return int
