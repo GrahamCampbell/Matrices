@@ -28,5 +28,5 @@ interface MatrixOperationInterface
      *
      * @return mixed
      */
-    public static function apply(Matrix $matrices, array $options = []);
+    public static function apply(Matrix $matrix, array $options = []);
 }
