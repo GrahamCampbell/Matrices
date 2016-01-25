@@ -27,7 +27,7 @@ class InvalidMatrixTest extends TestCase
      */
     public function testCreateWrongRow()
     {
-        return new Matrix([[1, 2], [3], [7, 9]]);
+        new Matrix([[1, 2], [3], [7, 9]]);
     }
 
     /**
@@ -36,7 +36,7 @@ class InvalidMatrixTest extends TestCase
      */
     public function testCreateWrongRowAgain()
     {
-        return new Matrix([[1, 2, 5], [3, 6, 7], [7, 9, 7, 10]]);
+        new Matrix([[1, 2, 5], [3, 6, 7], [7, 9, 7, 10]]);
     }
 
     /**
@@ -45,7 +45,7 @@ class InvalidMatrixTest extends TestCase
      */
     public function testCreateWithEmptyRow()
     {
-        return new Matrix([[1, 2, 5], [], [42, 6, 9]]);
+        new Matrix([[1, 2, 5], [], [42, 6, 9]]);
     }
 
     /**
@@ -54,7 +54,7 @@ class InvalidMatrixTest extends TestCase
      */
     public function testCreateEmptyRows()
     {
-        return new Matrix([]);
+        new Matrix([]);
     }
 
     /**
@@ -63,6 +63,24 @@ class InvalidMatrixTest extends TestCase
      */
     public function testCreateEmptyColumns()
     {
-        return new Matrix([[]]);
+        new Matrix([[]]);
+    }
+
+    public function testGetGoodElement()
+    {
+        $matrix = new Matrix([[1, 2], [2, 3]]);
+
+        $this->assertSame(2, $matrix->element(1, 0));
+    }
+
+    /**
+     * @expectedException \GrahamCampbell\Matrices\Exceptions\InvalidElementException
+     * @expectedExceptionMessage The given element does not exist in the matrix.
+     */
+    public function testGetBadElement()
+    {
+        $matrix = new Matrix([[1, 2], [2, 3]]);
+
+        $matrix->element(42, -7);
     }
 }

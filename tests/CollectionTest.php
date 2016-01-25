@@ -40,6 +40,18 @@ class CollectionTest extends TestCase
         new Collection([new Matrix([[1, 2], [3, 4]])]);
     }
 
+    public function testCollectionRaw()
+    {
+        $collection = new Collection([$first = new Matrix([[1, 2]]), $second = new Matrix([[3, 4]])]);
+
+        $matrices = $collection->matrices();
+
+        $this->assertInternalType('array', $matrices);
+        $this->assertCount(2, $collection);
+        $this->assertSame($first, $matrices[0]);
+        $this->assertSame($second, $matrices[1]);
+    }
+
     public function testCollectionCount()
     {
         $collection = new Collection([new Matrix([[1, 2]]), new Matrix([[3, 4]])]);
