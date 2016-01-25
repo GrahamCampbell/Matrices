@@ -18,7 +18,7 @@ use GrahamCampbell\Matrices\Matrix;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class MatrixTransposeOperation implements MatrixOperationInterface
+final class MatrixTransposeOperation implements MatrixOperationInterface
 {
     /**
      * Apply the operation to the given matrix.

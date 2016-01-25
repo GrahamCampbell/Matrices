@@ -21,7 +21,7 @@ use GrahamCampbell\Matrices\Matrix;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class MatrixMinorOperation implements MatrixOperationInterface
+final class MatrixMinorOperation implements MatrixOperationInterface
 {
     /**
      * Apply the operation to the given matrix.

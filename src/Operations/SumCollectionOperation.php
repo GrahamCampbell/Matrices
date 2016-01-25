@@ -19,7 +19,7 @@ use GrahamCampbell\Matrices\Matrix;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class SumCollectionOperation implements CollectionOperationInterface
+final class SumCollectionOperation implements CollectionOperationInterface
 {
     /**
      * Apply the operation to the given matrix collection.
