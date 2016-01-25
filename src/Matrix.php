@@ -23,7 +23,7 @@ use IteratorAggregate;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Matrix implements Countable, IteratorAggregate
+final class Matrix implements Countable, IteratorAggregate
 {
     protected $elements;
     protected $rows;
