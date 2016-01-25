@@ -26,7 +26,7 @@ interface CollectionOperationInterface
      * @param \GrahamCampbell\Matrices\Collection $collection
      * @param array                               $options
      *
-     * @return mixed
+     * @return \GrahamCampbell\Matrices\Matrix|int|float
      */
     public static function apply(Collection $collection, array $options = []);
 }
