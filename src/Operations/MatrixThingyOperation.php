@@ -14,15 +14,23 @@ namespace GrahamCampbell\Matrices\Operations;
 use GrahamCampbell\Matrices\Matrix;
 
 /**
- * This is the matrix thingy trait class.
+ * This is the matrix thingy operation class.
  *
- * This trait is designed for internal use only.
+ * @internal
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-trait MatrixThingyTrait
+class MatrixThingyOperation implements MatrixOperationInterface
 {
-    protected static function getMatrixThingy(Matrix $matrix)
+    /**
+     * Apply the operation to the given matrix.
+     *
+     * @param \GrahamCampbell\Matrices\Matrix $matrix
+     * @param array                           $options
+     *
+     * @return int|float
+     */
+    public static function apply(Matrix $matrix, array $options = [])
     {
         $elements = [];
 

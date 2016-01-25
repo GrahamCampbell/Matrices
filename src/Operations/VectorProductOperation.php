@@ -22,8 +22,6 @@ use GrahamCampbell\Matrices\Matrix;
  */
 class VectorProductOperation implements CollectionOperationInterface
 {
-    use MatrixThingyTrait;
-
     /**
      * Apply the operation to the given collection.
      *
@@ -42,7 +40,7 @@ class VectorProductOperation implements CollectionOperationInterface
             throw new InvalidCollectionException('The vector product requires exactly two matrices.');
         }
 
-        return static::getMatrixThingy(static::generateMatrix($collection));
+        return MatrixThingyOperation::apply(static::generateMatrix($collection));
     }
 
     protected static function generateMatrix(Collection $collection)
