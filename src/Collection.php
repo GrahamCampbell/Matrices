@@ -23,7 +23,7 @@ use IteratorAggregate;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Collection implements Countable, IteratorAggregate
+final class Collection implements Countable, IteratorAggregate
 {
     protected $matrices;
     protected $sameDimensions;
