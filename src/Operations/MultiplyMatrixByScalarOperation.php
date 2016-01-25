@@ -11,8 +11,8 @@
 
 namespace GrahamCampbell\Matrices\Operations;
 
+use GrahamCampbell\Matrices\Exceptions\InvalidOptionsException;
 use GrahamCampbell\Matrices\Matrix;
-use InvalidArgumentException;
 
 /**
  * This is the multiply matrix by scalar operation class.
@@ -32,7 +32,7 @@ class MultiplyMatrixByScalarOperation implements MatrixOperationInterface
     public static function apply(Matrix $matrix, array $options = [])
     {
         if (!isset($options['scalar'])) {
-            throw new InvalidArgumentException('A scalar to multiply by is required.');
+            throw new InvalidOptionsException('A scalar to multiply by is required.');
         }
 
         $scalar = $options['scalar'];

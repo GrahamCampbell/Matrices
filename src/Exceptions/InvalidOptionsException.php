@@ -14,11 +14,11 @@ namespace GrahamCampbell\Matrices\Exceptions;
 use InvalidArgumentException;
 
 /**
- * This is the invalid collection exception class.
+ * This is the invalid options exception class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class InvalidCollectionException extends InvalidArgumentException implements MatricesExceptionInterface
+class InvalidOptionsException extends InvalidArgumentException implements MatricesExceptionInterface
 {
     //
 }

@@ -11,14 +11,12 @@
 
 namespace GrahamCampbell\Matrices\Exceptions;
 
-use InvalidArgumentException;
-
 /**
- * This is the invalid collection exception class.
+ * This is the matrices exception interface.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class InvalidCollectionException extends InvalidArgumentException implements MatricesExceptionInterface
+interface MatricesExceptionInterface
 {
     //
 }

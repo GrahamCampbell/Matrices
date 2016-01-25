@@ -12,9 +12,9 @@
 namespace GrahamCampbell\Matrices\Operations;
 
 use GrahamCampbell\Matrices\Exceptions\InvalidMatrixException;
+use GrahamCampbell\Matrices\Exceptions\InvalidOptionsException;
 use GrahamCampbell\Matrices\Iterators\MatrixRowIterator;
 use GrahamCampbell\Matrices\Matrix;
-use InvalidArgumentException;
 
 /**
  * This is the matrix minor operation class.
@@ -40,11 +40,11 @@ class MatrixMinorOperation implements MatrixOperationInterface
         }
 
         if (!isset($options['row']) || !isset($options['column'])) {
-            throw new InvalidArgumentException('The position of the element in the matrix is required.');
+            throw new InvalidOptionsException('The position of the element in the matrix is required.');
         }
 
         if ($options['row'] >= $size || $options['row'] < 0 || $options['column'] >= $size || $options['column'] < 0) {
-            throw new InvalidArgumentException('The position of the element in the matrix must exist in the matrix.');
+            throw new InvalidOptionsException('The position of the element in the matrix must exist in the matrix.');
         }
 
         return MatrixDeterminantOperation::apply(static::generateMatrix($matrix, $options['row'], $options['column']));
