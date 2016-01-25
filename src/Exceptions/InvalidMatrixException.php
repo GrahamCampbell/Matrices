@@ -18,7 +18,7 @@ use InvalidArgumentException;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class InvalidMatrixException extends InvalidArgumentException
+class InvalidMatrixException extends InvalidArgumentException implements MatricesExceptionInterface
 {
     //
 }
