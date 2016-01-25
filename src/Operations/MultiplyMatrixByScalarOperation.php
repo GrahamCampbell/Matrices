@@ -11,8 +11,8 @@
 
 namespace GrahamCampbell\Matrices\Operations;
 
-use GrahamCampbell\Matrices\Matrix;
 use GrahamCampbell\Matrices\Exceptions\InvalidOptionsException;
+use GrahamCampbell\Matrices\Matrix;
 
 /**
  * This is the multiply matrix by scalar operation class.
