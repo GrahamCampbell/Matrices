@@ -20,7 +20,7 @@ use GrahamCampbell\Matrices\Matrix;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class MatrixThingyOperation implements MatrixOperationInterface
+final class MatrixThingyOperation implements MatrixOperationInterface
 {
     /**
      * Apply the operation to the given matrix.

@@ -19,7 +19,7 @@ use GrahamCampbell\Matrices\Exceptions\InvalidCollectionException;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ScalarProductOperation implements CollectionOperationInterface
+final class ScalarProductOperation implements CollectionOperationInterface
 {
     /**
      * Apply the operation to the given collection.

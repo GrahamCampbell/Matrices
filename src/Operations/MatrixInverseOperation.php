@@ -19,7 +19,7 @@ use GrahamCampbell\Matrices\Matrix;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class MatrixInverseOperation implements MatrixOperationInterface
+final class MatrixInverseOperation implements MatrixOperationInterface
 {
     /**
      * Apply the operation to the given matrix.
