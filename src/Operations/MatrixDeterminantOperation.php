@@ -36,7 +36,7 @@ final class MatrixDeterminantOperation implements MatrixOperationInterface
         }
 
         if ($matrix->rows() === 1) {
-            return $matrix->raw()[0][0];
+            return $matrix->element(0, 0);
         }
 
         return static::detLarge($matrix);

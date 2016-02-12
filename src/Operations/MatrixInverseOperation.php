@@ -36,7 +36,7 @@ final class MatrixInverseOperation implements MatrixOperationInterface
         }
 
         if ($matrix->rows() === 1) {
-            return new Matrix([[1 / $matrix->raw()[0][0]]]);
+            return new Matrix([[1 / $matrix->element(0, 0)]]);
         }
 
         return static::inverseLarge($matrix);
