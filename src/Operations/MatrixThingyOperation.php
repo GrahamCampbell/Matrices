@@ -37,7 +37,7 @@ final class MatrixThingyOperation implements MatrixOperationInterface
         $elements = [];
 
         foreach ($matrix->row(0) as $index => $element) {
-            if (round((float) $det, 8) === 0.0) {
+            if (round((float) $element, 8) === 0.0) {
                 $elements[$index][] = 0;
             } else {
                 $elements[$index][] = $element * MatrixMinorOperation::apply($matrix, ['row' => 0, 'column' => $index]);
