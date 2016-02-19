@@ -40,10 +40,10 @@ final class MatrixThingyOperation implements MatrixOperationInterface
             if (round((float) $element, 8) === 0.0) {
                 $elements[$index][] = 0;
             } else {
-                $elements[$index][] = $element * MatrixMinorOperation::apply($matrix, ['row' => 0, 'column' => $index]);
+                $elements[$index][] = $element * MatrixMinorOperation::apply($matrix, ['row' => 0, 'column' => $index]) * pow(-1, $index);
             }
         }
 
-        return MatrixCofactorOperation::apply(new Matrix($elements));
+        return new Matrix($elements);
     }
 }

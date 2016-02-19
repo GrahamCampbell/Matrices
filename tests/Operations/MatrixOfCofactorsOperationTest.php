@@ -14,31 +14,30 @@ declare(strict_types=1);
 namespace GrahamCampbell\Tests\Matrices\Operations;
 
 use GrahamCampbell\Matrices\Matrix;
-use GrahamCampbell\Matrices\Operations\MatrixCofactorOperation;
+use GrahamCampbell\Matrices\Operations\MatrixOfCofactorsOperation;
 use PHPUnit_Framework_TestCase as TestCase;
 
 /**
- * This is the matrix cofactor operation test class.
+ * This is the matrix of cofactors operation test class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class MatrixCofactorOperationTest extends TestCase
+class MatrixOfCofactorsOperationTest extends TestCase
 {
     public function dataProvider()
     {
         return [
-            [[[1]], [[1]]],
-            [[[1, 2], [3, 4]], [[1, -2], [-3, 4]]],
-            [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[1, -2, 3], [-4, 5, -6], [7, -8, 9]]],
+            [[[42, 180], [100, 200]], [[200, -100], [-180, 42]]],
+            [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[-3, 6, -3], [6, -12, 6], [-3, 6, -3]]],
         ];
     }
 
     /**
      * @dataProvider dataProvider
      */
-    public function testFindCofactor($input, $result)
+    public function testFindMatrixOfCofactors($input, $result)
     {
-        $cofactor = MatrixCofactorOperation::apply(new Matrix($input));
+        $cofactor = MatrixOfCofactorsOperation::apply(new Matrix($input));
 
         $this->assertSame($result, $cofactor->raw());
     }
