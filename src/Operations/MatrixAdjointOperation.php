@@ -46,8 +46,6 @@ final class MatrixAdjointOperation implements MatrixOperationInterface
 
     protected static function adjointLarge(Matrix $matrix)
     {
-        $minors = MatrixOfMinorsOperation::apply($matrix);
-
-        return MatrixTransposeOperation::apply(MatrixCofactorOperation::apply($minors));
+        return MatrixTransposeOperation::apply(MatrixOfCofactorsOperation::apply($matrix));
     }
 }

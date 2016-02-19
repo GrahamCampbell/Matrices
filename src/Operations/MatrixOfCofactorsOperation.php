@@ -16,11 +16,11 @@ namespace GrahamCampbell\Matrices\Operations;
 use GrahamCampbell\Matrices\Matrix;
 
 /**
- * This is the matrix cofactor operation class.
+ * This is the matrix of cofactors operation class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-final class MatrixCofactorOperation implements MatrixOperationInterface
+final class MatrixOfCofactorsOperation implements MatrixOperationInterface
 {
     /**
      * Apply the operation to the given matrix.
@@ -34,7 +34,7 @@ final class MatrixCofactorOperation implements MatrixOperationInterface
     {
         $elements = [];
 
-        foreach ($matrix as $row => $iterator) {
+        foreach (MatrixOfMinorsOperation::apply($matrix) as $row => $iterator) {
             foreach ($iterator as $column => $element) {
                 $elements[$row][$column] = $element * pow(-1, $row + $column);
             }
