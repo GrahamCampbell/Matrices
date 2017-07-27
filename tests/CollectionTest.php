@@ -15,7 +15,7 @@ namespace GrahamCampbell\Tests\Matrices;
 
 use GrahamCampbell\Matrices\Collection;
 use GrahamCampbell\Matrices\Matrix;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * This is the collection test class.

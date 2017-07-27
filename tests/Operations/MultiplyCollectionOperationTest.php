@@ -16,7 +16,7 @@ namespace GrahamCampbell\Tests\Matrices\Operations;
 use GrahamCampbell\Matrices\Collection;
 use GrahamCampbell\Matrices\Matrix;
 use GrahamCampbell\Matrices\Operations\MultiplyCollectionOperation;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * This is the sum collection operation test class.

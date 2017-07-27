@@ -15,7 +15,7 @@ namespace GrahamCampbell\Tests\Matrices\Operations;
 
 use GrahamCampbell\Matrices\Matrix;
 use GrahamCampbell\Matrices\Operations\MultiplyMatrixByScalarOperation;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * This is the multiply matrix by a scalar operation test class.

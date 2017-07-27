@@ -15,7 +15,7 @@ namespace GrahamCampbell\Tests\Matrices\Operations;
 
 use GrahamCampbell\Matrices\Matrix;
 use GrahamCampbell\Matrices\Operations\MatrixDeterminantOperation;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * This is the matrix determinant operation test class.

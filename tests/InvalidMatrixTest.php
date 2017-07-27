@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace GrahamCampbell\Tests\Matrices;
 
 use GrahamCampbell\Matrices\Matrix;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * This is the invalid matrix test class.

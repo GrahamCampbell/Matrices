@@ -16,7 +16,7 @@ namespace GrahamCampbell\Tests\Matrices\Operations;
 use GrahamCampbell\Matrices\Collection;
 use GrahamCampbell\Matrices\Matrix;
 use GrahamCampbell\Matrices\Operations\VectorProductOperation;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * This is the vector product operation test class.
